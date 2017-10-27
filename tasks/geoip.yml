@@ -1,0 +1,8 @@
+---
+
+- name: Get geo-ip database
+  unarchive:
+    src: "{{ logstash_geo_ip_url }}"
+    dest: /etc/logstash
+    remote_src: yes
+  when: logstash_geo_ip_enabled
