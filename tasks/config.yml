@@ -1,21 +1,21 @@
 ---
 
 - stat:
-    path: /etc/src/filebeat/conf.d
+    path: /etc/logstash/conf.d
   register: conf_d
 
 - name: Clear Logstash /etc/logstash/conf.d/ folder
   file:
-    src: /etc/src/filebeat/conf.d
+    path: /etc/logstash/conf.d
     state: absent
   when: conf_d.stat.exists
 
 - name: Create Logstash /etc/logstash/conf.d/ folder
   file:
-    src: /etc/src/filebeat/conf.d
+    path: /etc/logstash/conf.d/
     owner: root
     group: root
-    mode: 0644
+    mode: 0655
     state: directory
 
 - name: Create Logstash input configuration files.
