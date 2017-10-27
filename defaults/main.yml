@@ -35,5 +35,7 @@ logstash_filter_files:
   - 14-solr.conf
   - 15-drupal.conf
 
+logstash_filters: []
+
 logstash_geo_ip_url: http://geolite.maxmind.com/download/geoip/database/GeoLite2-City.mmdb.gz
 logstash_geo_ip_enabled: no

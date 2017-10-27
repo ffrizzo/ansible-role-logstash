@@ -1,5 +1,23 @@
 ---
 
+- stat:
+    path: /etc/src/filebeat/conf.d
+  register: conf_d
+
+- name: Clear Logstash /etc/logstash/conf.d/ folder
+  file:
+    src: /etc/src/filebeat/conf.d
+    state: absent
+  when: conf_d.stat.exists
+
+- name: Create Logstash /etc/logstash/conf.d/ folder
+  file:
+    src: /etc/src/filebeat/conf.d
+    owner: root
+    group: root
+    mode: 0644
+    state: directory
+
 - name: Create Logstash input configuration files.
   template:
     src: "{{ item }}.j2"
