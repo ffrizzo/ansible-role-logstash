@@ -11,4 +11,13 @@
     mode: 0644
 
 - name: Install Logstash.
-  yum: pkg=logstash state=installed
+  yum:
+    pkg: logstash-{{ logstash_version }}
+    state: installed
+  when: not logstash_version
+
+- name: Install Logstash.
+  yum:
+    pkg: logstash-{{ logstash_version }}
+    state: installed
+  when: logstash_version  
