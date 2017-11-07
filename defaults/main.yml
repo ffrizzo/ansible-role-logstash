@@ -37,3 +37,8 @@ logstash_filter_files:
   - 15-drupal.conf
 
 logstash_filters: []
+
+logstash_patterns_files:
+  - nginx
+
+logstash_patterns: []  
