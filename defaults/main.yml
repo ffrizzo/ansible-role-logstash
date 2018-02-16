@@ -1,6 +1,6 @@
 ---
 
-logstash_major_version: "5.x"
+logstash_major_version: "6.x"
 logstash_version: ""
 
 
