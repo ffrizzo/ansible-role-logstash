@@ -12,12 +12,6 @@
 
 - name: Install Logstash.
   yum:
-    pkg: logstash-{{ logstash_version }}
-    state: installed
-  when: not logstash_version
-
-- name: Install Logstash.
-  yum:
-    pkg: logstash-{{ logstash_version }}
-    state: installed
-  when: logstash_version  
+    pkg: logstash{% if logstash_version is defined and logstash_version != "" %}-{{ logstash_version }}{% endif %} 
+    state: present
+    update_cache: yes

@@ -21,15 +21,9 @@
 
 - name: Install Logstash.
   apt:
-    pkg: logstash
+    pkg: logstash{% if logstash_version is defined and logstash_version != "" %}={{ logstash_version }}{% endif %} 
     state: present
-  when: not logstash_version
-
-- name: Install Logstash.
-  apt:
-    pkg: logstash={{ logstash_version }}
-    state: present
-  when: logstash_version
+    update_cache: yes
 
 - name: Add Logstash user to adm group (Debian).
   user:
