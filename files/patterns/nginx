@@ -1,1 +1,1 @@
-NGINXACCESS %{HTTPD_COMBINEDLOG} %{NUMBER:request_time:float} %{NUMBER:upstream_time:float}
+NGINXACCESS %{HTTPD_COMBINEDLOG} %{GREEDYDATA:body} %{NUMBER:request_time:float} %{NUMBER:upstream_time:float}
