@@ -1,1 +1,3 @@
 NGINXACCESS %{HTTPD_COMBINEDLOG} %{GREEDYDATA:body} %{NUMBER:request_time:float} %{NUMBER:upstream_time:float}
+
+NGINXERROR (?<timestamp>%{YEAR}[./]%{MONTHNUM}[./]%{MONTHDAY} %{TIME}) \[%{LOGLEVEL:severity}\] %{POSINT:pid}#%{NUMBER:threadid}\: \*%{NUMBER:connectionid} %{GREEDYDATA:errormessage}, client: %{IP:clientip}, server: %{GREEDYDATA:server}, request: %{QS:request}?(?:, host: %{QS:host})?(?:, referrer: \"%{URI:referrer})?
